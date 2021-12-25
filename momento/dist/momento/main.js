@@ -1,0 +1,14 @@
+"use strict";
+exports.__esModule = true;
+var editor_1 = require("./editor");
+var history_1 = require("../history");
+var editor = new editor_1.Editor();
+var history = new history_1.History();
+var currentState;
+currentState = editor.createState(new editor_1.EditorState("A", "AA"));
+history.push(currentState);
+currentState = editor.createState(new editor_1.EditorState("B", "BB"));
+history.push(currentState);
+history.undo();
+history.redo();
+console.log(history.getCurrentState());
